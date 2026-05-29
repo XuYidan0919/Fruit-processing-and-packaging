@@ -6,7 +6,7 @@
 
 ### 启动
 
-方式一：直接用浏览器打开 `https://xuyidan0919.github.io/Fruit-processing-and-packaging/`。
+直接用浏览器打开 `https://xuyidan0919.github.io/Fruit-processing-and-packaging/`。
 
 ### 怎么跑
 
