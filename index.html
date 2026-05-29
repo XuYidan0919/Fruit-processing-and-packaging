@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>水果打包加工 Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">最小闭环 Demo</p>
+          <h1>水果打包加工</h1>
+        </div>
+        <span id="pageBadge" class="badge">录入</span>
+      </header>
+
+      <section id="inputPage" class="page">
+        <div id="inputIssues"></div>
+        <div class="section">
+          <div class="section-title">
+            <h2>原料投入</h2>
+            <button id="loadSampleBtn" class="ghost" type="button">示例</button>
+          </div>
+          <label>
+            批次号
+            <input id="batchNo" type="text" value="BATCH-001" />
+          </label>
+          <div class="grid-two">
+            <label>
+              原料果 A（斤）
+              <input id="rawA" type="number" min="0" step="0.1" value="80" />
+            </label>
+            <label>
+              原料果 B（斤）
+              <input id="rawB" type="number" min="0" step="0.1" value="40" />
+            </label>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>产出录入</h2>
+          <div class="grid-three">
+            <label>
+              5斤装（包）
+              <input id="pack5" type="number" min="0" step="1" value="8" />
+            </label>
+            <label>
+              8斤装（包）
+              <input id="pack8" type="number" min="0" step="1" value="6" />
+            </label>
+            <label>
+              10斤装（包）
+              <input id="pack10" type="number" min="0" step="1" value="2" />
+            </label>
+          </div>
+          <div class="grid-two">
+            <label>
+              次果（斤）
+              <input id="defective" type="number" min="0" step="0.1" value="8" />
+            </label>
+            <label>
+              损耗（斤）
+              <input id="loss" type="number" min="0" step="0.1" value="4" />
+            </label>
+          </div>
+        </div>
+
+        <button id="calculateBtn" class="primary" type="button">生成结果</button>
+      </section>
+
+      <section id="resultPage" class="page hidden">
+        <div id="issues"></div>
+        <div class="section">
+          <h2>库存结果</h2>
+          <dl class="metrics">
+            <div><dt>原料消耗</dt><dd id="rawConsumed">-</dd></div>
+            <div><dt>成品产出</dt><dd id="finishedWeight">-</dd></div>
+            <div><dt>次果</dt><dd id="defectiveWeight">-</dd></div>
+            <div><dt>损耗</dt><dd id="lossWeight">-</dd></div>
+            <div><dt>守恒差异</dt><dd id="balanceDiff">-</dd></div>
+          </dl>
+        </div>
+
+        <div class="section">
+          <h2>成本结果</h2>
+          <dl class="metrics">
+            <div><dt>原料总成本</dt><dd id="rawCostTotal">-</dd></div>
+            <div><dt>成品成本</dt><dd id="finishedCost">-</dd></div>
+            <div><dt>次果成本</dt><dd id="defectiveCost">-</dd></div>
+            <div><dt>损耗成本</dt><dd id="lossCost">-</dd></div>
+            <div><dt>成品单位成本</dt><dd id="unitCost">-</dd></div>
+          </dl>
+        </div>
+
+        <div class="section">
+          <h2>本版假设</h2>
+          <ul class="assumptions">
+            <li>原料 A 成本 2 元/斤，原料 B 成本 3 元/斤。</li>
+            <li>产出重量 = 各规格包数 × 规格斤数。</li>
+            <li>成本按成品、次果、损耗的重量占比分摊并分别列示。</li>
+          </ul>
+        </div>
+
+        <button id="backBtn" class="secondary" type="button">返回修改</button>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
